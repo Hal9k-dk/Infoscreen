@@ -13,6 +13,8 @@ int PIR_2 = 3;
 unsigned long lastmovemnt = 0;
 unsigned int offtime = 3600; //Seconds
 
+unsigned long temp = 0;
+
 void setup() {
 //Serial.begin(9600);
 pinMode(relaypin, OUTPUT); 
@@ -28,12 +30,17 @@ pinMode(PIR_1, INPUT);
 }
 
 void loop() {
-//Serial.print("lastmovement: ");
-//Serial.println(lastmovemnt);
+/*  if(temp != now()){
+Serial.print("lastmovement: ");
+Serial.println(lastmovemnt);
 
-//Serial.print("PIR value: ");
-//Serial.println(PIR_1);
+Serial.print("now: ");
+Serial.println(now());
 
+Serial.print("PIR value: ");
+Serial.println(PIR_1);
+temp = now();
+  }*/
 if (digitalRead(PIR_1)){
   lastmovemnt = now();
   }
@@ -56,7 +63,7 @@ delay(100);
 /*void movement(){
  detachInterrupt(0);
  //detachInterrupt(1);
- //Serial.println("INTERRUPT");
+ Serial.println("INTERRUPT");
  lastmovemnt = now();
 
  attachInterrupt(0, movement, RISING);
