@@ -23,6 +23,7 @@ digitalWrite(relaypin, LOW);
 digitalWrite(ledpin, LOW);
 
 pinMode(PIR_1, INPUT); 
+//digitalWrite(PIR_1, LOW);
 //attachInterrupt(0, movement, RISING);
 //pinMode(PIR_2, INPUT); 
 //attachInterrupt(1, movement, RISING);
@@ -41,7 +42,7 @@ Serial.print("PIR value: ");
 Serial.println(PIR_1);
 temp = now();
   }*/
-if (digitalRead(PIR_1)){
+if (digitalRead(PIR_1) == HIGH){
   lastmovemnt = now();
   }
 
@@ -56,7 +57,7 @@ else if(now()- lastmovemnt > offtime){
   digitalWrite(ledpin, LOW);
   }
 
-delay(100); 
+delay(500); 
 }
 
 
